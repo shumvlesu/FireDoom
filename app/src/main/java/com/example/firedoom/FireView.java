@@ -75,7 +75,6 @@ public class FireView extends View {
         firePixels = new int[fireWidth * fireHeight];
 
         for (int x = 0; x < fireWidth; x ++) {
-           // firePixels[x][fireHeight - 1] = firePalette.length - 1;
             firePixels[x + (fireHeight - 1) * fireWidth]  = firePalette.length - 1;
         }
 
@@ -120,14 +119,12 @@ public class FireView extends View {
 
     }
 
-
-
     private void spreadFire() {
         // TODO: здесь будет алгоритм распространения огня
         for (int y = 0; y < fireHeight - 1; y++) {
             for (int x = 0; x < fireWidth; x++) {
-                int rand_x = random.nextInt(3);
-                int rand_y = random.nextInt(6);
+                int rand_x = random.nextInt(4);
+                int rand_y = random.nextInt(7);
                 int dst_x = Math.min(fireWidth - 1, Math.max(0, x + rand_x - 1));
                 int dst_y = Math.min(fireHeight - 1, y + rand_y);
                 int deltaFire = -(rand_x & 1);
